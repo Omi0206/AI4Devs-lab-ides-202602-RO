@@ -2,6 +2,7 @@
 **/.DS_Store
 #**/.env
 **/.env.example
+!backend/.env.example
 **/node_modules
 **/prompts_master.md
 
@@ -11,6 +12,7 @@
 
 # testing
 /coverage
+**/coverage/
 
 # production
 **/build
@@ -26,4 +28,6 @@ yarn-error.log*
 .vscode
 
 # .env
+
+**/uploads/
 
