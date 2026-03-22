@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import { AddCandidatePage } from './components/AddCandidatePage';
+import { RecruiterDashboard } from './components/RecruiterDashboard';
 
-function App() {
+export function AppRoutes(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <a href="#main-content" className="skip-link visually-hidden-focusable">
+        Skip to main content
+      </a>
+      <main id="main-content" tabIndex={-1}>
+        <Routes>
+          <Route path="/" element={<RecruiterDashboard />} />
+          <Route path="/candidates/new" element={<AddCandidatePage />} />
+        </Routes>
+      </main>
+    </>
+  );
+}
+
+function App(): JSX.Element {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
 

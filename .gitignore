@@ -3,6 +3,7 @@
 #**/.env
 **/.env.example
 !backend/.env.example
+!frontend/.env.example
 **/node_modules
 **/prompts_master.md
 
