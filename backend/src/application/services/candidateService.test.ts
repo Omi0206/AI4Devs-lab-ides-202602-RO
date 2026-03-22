@@ -8,9 +8,13 @@ import type { CreateCandidateRequest } from '../types';
 
 const uploadRoot = path.join(os.tmpdir(), `candidate-svc-test-${process.pid}`);
 
-jest.mock('../../config/env', () => ({
-  getUploadDir: () => uploadRoot,
-}));
+jest.mock('../../config/env', () => {
+  const actual = jest.requireActual<typeof import('../../config/env')>('../../config/env');
+  return {
+    ...actual,
+    getUploadDir: (): string => uploadRoot,
+  };
+});
 
 const createMock = jest.fn();
 
